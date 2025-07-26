@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Table, Form, Button } from 'react-bootstrap';
+import DashboardLayout from "../components/DashboardLayout";
 
 const StoreOwnerDashboard = () => {
   const [storeName, setStoreName] = useState('');
@@ -11,7 +12,7 @@ const StoreOwnerDashboard = () => {
 
   const fetchStores = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/stores/owner/${ownerId}`);
+      const res = await axios.get(`/api/stores/owner/${ownerId}`);
       setStores(res.data);
     } catch (err) {
       console.error('Error fetching stores:', err);
@@ -25,7 +26,7 @@ const StoreOwnerDashboard = () => {
   const handleAddStore = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/stores', {
+      await axios.post('/api/stores', {
         name: storeName,
         address,
         owner_id: ownerId,

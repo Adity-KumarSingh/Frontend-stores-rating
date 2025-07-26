@@ -11,8 +11,8 @@ const UserDashboard = () => {
 
   const fetchStores = async () => {
     try {
-      const unratedRes = await axios.get(`http://localhost:5000/api/stores/unrated/${userId}`);
-      const ratedRes = await axios.get(`http://localhost:5000/api/stores/rated/${userId}`);
+      const unratedRes = await axios.get(`/api/stores/unrated/${userId}`);
+      const ratedRes = await axios.get(`/api/stores/rated/${userId}`);
       setUnratedStores(unratedRes.data);
       setRatedStores(ratedRes.data);
     } catch (err) {
@@ -29,7 +29,7 @@ const UserDashboard = () => {
       const ratingValue = ratings[storeId];
       if (!ratingValue) return;
 
-      await axios.post('http://localhost:5000/api/ratings', {
+      await axios.post('/api/ratings', {
         store_id: storeId,
         user_id: userId,
         rating: ratingValue,
