@@ -11,7 +11,7 @@ const Register = () => {
 
   const handleRegister = async () => {
     try {
-      await axios.post('/api/auth/register', form);
+      await axios.post('https://backend-stores-rating-production.up.railway.app/api/auth/register', form);
       toast.success('Registered successfully!');
       setTimeout(() => navigate('/'), 2000);
     } catch (err) {

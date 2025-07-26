@@ -18,9 +18,9 @@ const AdminDashboard = () => {
     const fetchAllData = async () => {
       try {
         const [usersRes, storesRes, statsRes] = await Promise.all([
-          axios.get('/api/users/with-rating-count'),
-          axios.get('/api/stores/with-owner-info'),
-          axios.get('/api/stats'),
+          axios.get('https://backend-stores-rating-production.up.railway.app/api/users/with-rating-count'),
+          axios.get('https://backend-stores-rating-production.up.railway.app/api/stores/with-owner-info'),
+          axios.get('https://backend-stores-rating-production.up.railway.app/api/stats'),
         ]);
 
         setUsers(usersRes.data);

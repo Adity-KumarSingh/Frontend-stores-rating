@@ -12,7 +12,7 @@ const StoreOwnerDashboard = () => {
 
   const fetchStores = async () => {
     try {
-      const res = await axios.get(`/api/stores/owner/${ownerId}`);
+      const res = await axios.get(`https://backend-stores-rating-production.up.railway.app/api/stores/owner/${ownerId}`);
       setStores(res.data);
     } catch (err) {
       console.error('Error fetching stores:', err);
@@ -26,7 +26,7 @@ const StoreOwnerDashboard = () => {
   const handleAddStore = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/api/stores', {
+      await axios.post('https://backend-stores-rating-production.up.railway.app/api/stores', {
         name: storeName,
         address,
         owner_id: ownerId,
