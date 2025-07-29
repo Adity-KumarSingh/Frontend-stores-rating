@@ -7,7 +7,7 @@ const UserDashboard = () => {
   const userId = localStorage.getItem('userId');
   const [unratedStores, setUnratedStores] = useState([]);
   const [ratedStores, setRatedStores] = useState([]);
-  const [ratings, setRatings] = useState({}); // store_id -> selected rating
+  const [ratings, setRatings] = useState({}); 
 
   const fetchStores = async () => {
     try {
@@ -35,7 +35,7 @@ const UserDashboard = () => {
         rating: ratingValue,
       });
 
-      fetchStores(); // Refresh both lists
+      fetchStores(); 
     } catch (err) {
       console.error('Rating error:', err);
     }
